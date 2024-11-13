@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshid Modi - Computer Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d5f4e6; /* Background color */
+            color: #618685; /* Text color */
+        }
+        a {
+            color: #80ced6; /* Link color */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navbar styling */
+        nav {
+            background-color: #80ced6;
+            color: #618685;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background-color: #fefbd8; /* Soft highlight background */
+            color: #618685;
+        }
+        header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.7rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        header button {
+            padding: 0.8rem 1.7rem;
+            border: none;
+            background-color: #618685; /* Button color */
+            color: #fefbd8; /* Button text color */
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1.2rem;
+            border-radius: 4px;
+        }
+        header button:hover {
+            background-color: #80ced6;
+        }
+
+        /* Section styling */
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 800px;
+            margin: 1rem auto;
+            background-color: #fefbd8; /* Section background */
+            color: #618685;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        section h2 {
+            font-size: 1.8rem;
+            color: #618685; /* Section heading color */
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #618685;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        section p, section ul {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #618685;
+        }
+        section ul {
+            padding-left: 20px;
+        }
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer styling */
+        #contact {
+            text-align: center;
+            padding: 1rem;
+        }
+        .contact-info p, .contact-info a {
+            color: #618685;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Firebase configuration -->
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCNP-f4HIoNbUQdpyhq6Lh2p1jZ35udQ8o",
+        authDomain: "sewt-proj.firebaseapp.com",
+        databaseURL: "https://sewt-proj-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "sewt-proj",
+        storageBucket: "sewt-proj.appspot.com",
+        messagingSenderId: "576920412712",
+        appId: "1:576920412712:web:272403d27bc7c7eb394b1d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const storage = firebase.storage();
+
+    function downloadResume() {
+        const resumeRef = storage.ref('uploads/resume harshid.pdf');
+        resumeRef.getDownloadURL()
+            .then((url) => {
+                window.open(url, '_blank');
+            })
+            .catch((error) => {
+                console.error("Error downloading resume:", error);
+            });
+    }
+</script>
+
+<!-- Navigation Bar -->
+<header>
+    <h1>Harshid Modi</h1>
+
+
+<!-- Home Section -->
+
+    <h2>Computer Engineer</h2>
+    <p><a href="https://www.linkedin.com/in/harshid-modi-/">LinkedIn</a> | <a href="https://leetcode.com/u/harshid_modi/">LeetCode</a> | <a href="mailto:harshid.modi@gmail.com">Gmail</a></p>
+    <button onclick="downloadResume()">Download Resume</button>
+</header>
+
+<!-- Summary Section -->
+<section id="summary">
+    <h2>Summary</h2>
+    <p>Motivated computer engineer passionate about software development and problem-solving, seeking to advance career growth through innovative projects.</p>
+</section>
+
+<!-- Education Section -->
+<section id="education">
+    <h2>Education</h2>
+    <ul>
+        <li><strong>Shri Bhagubhai Mafatlal Polytechnic</strong> - Diploma in Computer Engineering | 2020 – 2023</li>
+        <li><strong>Fr. Conceicao Rodrigues College of Engineering</strong> - Bachelor's in Electronics and Computer Science | 2023 - 2026</li>
+    </ul>
+</section>
+
+<!-- Technical Skills Section -->
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+        <li><strong>Languages</strong>: Python</li>
+        <li><strong>Database</strong>: PostgreSQL, MySQL</li>
+        <li><strong>Other Skills</strong>: Data Structures, NLP (Natural Language Processing)</li>
+    </ul>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li><strong>Smart Home Automation System</strong>: Created a Python-based home automation system integrating voice/text recognition, sensors (motion, temperature, humidity, light), and a camera. Utilized Firebase for real-time monitoring and image storage.</li>
+        <li><strong>Smart Web Content Summarizer</strong>: Developed a Python script that automates web content summarization and vocalization, including Google search, content extraction, summarization, and audio playback.</li>
+        <li><strong>Smart Chatbot</strong>: Built a Python chatbot with NLTK and spaCy for natural language processing, BeautifulSoup for web scraping, and pyttsx3 for voice interactions. It handles queries like weather updates, calculations, and news.</li>
+        <li><strong>Student DBMS</strong>: Designed a website with HTML/CSS and PHP for CRUD operations with a phpMyAdmin database, showcasing skills in web development and database management.</li>
+        <li><strong>Royal Hotel Management System</strong>: Developed a web-based hotel management system using HTML and CSS for a polished, user-friendly interface. The system handles reservations, check-ins, and check-outs, streamlining hotel operations. Emphasized responsive design for accessibility across devices.</li>
+    </ul>
+</section>
+
+<!-- Internship Section -->
+<section id="internship">
+    <h2>Internship</h2>
+    <p><strong>Genotech.in</strong> | July 2022 – August 2022 | Virtual</p>
+    <p>Developed a responsive website using HTML and CSS, improving web development skills through collaborative design changes and performance optimization.</p>
+</section>
+
+</body>
+</html>
